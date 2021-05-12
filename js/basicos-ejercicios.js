@@ -49,7 +49,8 @@ function separateByArray(text, separator) {
     
 }
 
-*/
+4.-
+
 let text = prompt("Inserte el texto");
 let times = prompt("Inserte el no. de veces que se repetirá el texto");
 repeatText(text, times);
@@ -58,3 +59,5 @@ function repeatText(text, times) {
         console.log(text);
     }
 }
+
+*/
