@@ -90,8 +90,8 @@ const cadenaAArreglo = (cadena = "", separador = undefined) =>
 cadenaAArreglo("aa","");
 */
 /*
-wow compare mi código de los ejercicios anteriores con los de Jon y hay mucha diferencia en legibilidad y lógica.
-Aquí unos consejos y recomendaciones de las buenas prácticas de Jon que noté en este video:
+
+Buenas prácticas aprendidas: 
 
 1.- Usar funciones expresadas con operadores ternarios para el retorno implícito - (Deja tu código simple, limpio y expresivo)
 2.- Usar operadores ternarios concatenados e identados en lugar de if cuando este último no sea necesario - (Al igual que el anterior es más fácil de leer y mantener)
