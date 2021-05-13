@@ -142,7 +142,7 @@ repeatedWord("", "");
 //7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
 
 
-
+/*
 const isItPalindome = function (text = "") {
     if(!text) return console.warn("The text is empty!");
 
@@ -159,3 +159,21 @@ isItPalindome("¿Será lodo o dólares?")
 isItPalindome("Logra Casillas allí sacar gol")
 isItPalindome("Yo dono rosas, oro no doy")
 isItPalindome("Eva, can I see bees in a cave?")
+*/
+
+// 8.- Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+
+
+const deletePattern = function (text = "", pattern = "") {
+
+    if (!text) return console.warn("The text is Empty"); 
+    if (!pattern) return console.warn("The pattern is Empty");
+    
+    pattern = pattern.split(",").join(`|`).replace(/\s/g, '');
+    let regEx = new RegExp(pattern, 'g'); 
+    let newText = text.replace(regEx, '');
+    console.log(newText);
+
+}
+
+deletePattern("Programa una función que elimine cierto patrón de caracteres de un texto dado", "a, e, i, o, ó, u");
