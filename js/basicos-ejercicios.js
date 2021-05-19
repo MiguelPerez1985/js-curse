@@ -204,7 +204,7 @@ isItCapicua(4045);
     se define como el producto de todos los números enteros positivos desde 1 hasta n), 
     pe. miFuncion(5) devolverá 120.
 */
-
+/*
 const factorial = function (num = 0) {
     if(!num) return console.warn("Invalid number");
     if(num<=0) return console.warn("U must type a number higher than 0");
@@ -217,7 +217,34 @@ const factorial = function (num = 0) {
 }
 
 factorial(8);
+*/
 
+//12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+
+//console.log(Number.isInteger(5/3));
+
+const esPrimo = function(numero = 0) {
+    if(!numero) return console.log("No ingresaste un número");
+    let arrayNum = new Array(numero);
+    let count = 0;
+    for (let i = 1; i < arrayNum.length + 1; i++) {
+        if(Number.isInteger(numero/i)) count ++;
+        if (count>2) return console.log("No es primo");    
+    }
+    if(count === 2) return console.log("Es primo");
+}
+
+//esPrimo();
+
+//13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+
+const esImpar = function (numero) {
+
+    
+    
+}
+
+//14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
 
 
 
