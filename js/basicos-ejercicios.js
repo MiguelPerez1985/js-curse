@@ -225,9 +225,8 @@ factorial(8);
 /*
 const esPrimo = function(numero = 0) {
     if(!numero) return console.log("No ingresaste un número");
-    let arrayNum = new Array(numero);
     let count = 0;
-    for (let i = 1; i < arrayNum.length + 1; i++) {
+    for (let i = 1; i < numero + 1; i++) {
         if(Number.isInteger(numero/i)) count ++;
         if (count>2) return console.log("No es primo");    
     }
