@@ -222,7 +222,7 @@ factorial(8);
 //12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
 
 //console.log(Number.isInteger(5/3));
-
+/*
 const esPrimo = function(numero = 0) {
     if(!numero) return console.log("No ingresaste un número");
     let arrayNum = new Array(numero);
@@ -238,14 +238,29 @@ const esPrimo = function(numero = 0) {
 
 //13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
 
-const esImpar = function (numero) {
 
-    
-    
+const esImpar = function (numero = 0) {
+    if (!numero) console.warn("No ingresaste un numero");
+    (Number.isInteger(numero/2)) 
+        ? console.log("Es par")
+        : console.log("No es par");     
 }
 
+//esImpar();
+
 //14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+//(0 °C × 9/5) + 32 = 32 °F
 
+//(32 °F − 32) × 5/9 = 0 °C
 
+const weatherConverter = function (num = undefined, scale = "") {
+    if (num===undefined || typeof(num)!=='number') return console.warn("No ingresaste un número"); 
+    if (!scale) return console.warn("No ingresaste una escala");
+    if (scale !== "F" && scale !== "C") return console.warn("Escala desconocida!");
+    if (scale === "C") return console.log(`${num} °C --> `+ ((num * 9/5) + 32) + `°F`); 
+    if (scale === "F") return console.log(`${num} °F --> `+ ((num - 32) * 5/9) + `°C`); 
 
+}
 
+//weatherConverter();
+*/
