@@ -264,9 +264,58 @@ const weatherConverter = function (num = undefined, scale = "") {
 //weatherConverter();
 */
 
-//15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+//15) Programa una función para convertir números de base binaria a decimal y 
+//viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+/*
+ const binADec = function(valor = undefined, sistema = undefined) {
+     if((!valor || typeof(valor)!=="number" || Math.sign(valor)===-1)) return console.warn("Escribe un valor válido");
+     //if binario -> 1 = decimal
+     //if decimal -> 2 = binario
+     if((/2|3|4|5|6|7|8|9/.test(valor)) && sistema === 2) return console.warn("El sistema binario solo acepta 1s y 0s");
+    
+     if((!sistema || typeof(sistema)!=="number" || Math.sign(sistema)===-1) || (sistema!==2 && sistema!==10))  return console.warn("Ingresa un sistema (2,10) válido");
+    
+    //binario a decimal
+    if(sistema === 2){
+        console.log(`Binario a Decimal`);
+        let valorRev = valor.toString().split('').reverse();
+        let dec = 0;
+        valorRev.forEach(function (element, index, valorRev) {
+            dec = dec + element * Math.pow(2, index);
+        });
+        return console.log(` ${valor} = ${dec} `);
+    } else{
+        console.log(`Decimal a Binario`);   
+        let residuo = 0;
+        const array = [];
+        let i = 0;
+        let auxValor = valor;
+        if(auxValor === 1) return console.log(1);;
+        while (auxValor>=2) {
+            residuo =Math.trunc(auxValor) % 2;
+            array[i] = residuo;
+            auxValor =  Math.trunc(auxValor) / 2;
+            i++;
+            if (auxValor<2) {
+                array[i] = Math.trunc(auxValor);
+                break;
+            }
+        }
+        return console.log( ` ${Math.trunc(valor)} = `+ array.toString().split(",").reverse().join('') );
+    }
+     
+ }
 
- 
-
+ binADec(01011, 2)
+*/
 //16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+/*
+const descuento = function(monto = undefined, descuento = undefined) {
+    if((!monto || typeof(monto)!=="number" || Math.sign(monto)===-1)) return console.warn("Escribe un valor válido");
+    if((!descuento || typeof(descuento)!=="number" || Math.sign(descuento)===-1)) return console.warn("Escribe un descuento válido");
+    let montoFinal = monto - ((monto * descuento) / 100) 
+    console.log(montoFinal);
+}
+descuento(1000,50)
+*/
 //17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
