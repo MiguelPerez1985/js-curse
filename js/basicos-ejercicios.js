@@ -319,7 +319,7 @@ const descuento = function(monto = undefined, descuento = undefined) {
 descuento(1000,50)
 */
 //17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
-
+/*
 const diffDates = function (date = undefined) {
     if (!date || typeof(date)!=="string") return console.warn("Unvalid input");
     let dateSplitted = date.split('-');
@@ -337,4 +337,9 @@ const diffDates = function (date = undefined) {
 
 }
 
-diffDates("13-12-2021");
+diffDates("13-12-2021");*/
+
+/*
+18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
+19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero. */
