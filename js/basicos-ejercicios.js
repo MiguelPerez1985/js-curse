@@ -319,3 +319,22 @@ const descuento = function(monto = undefined, descuento = undefined) {
 descuento(1000,50)
 */
 //17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+
+const diffDates = function (date = undefined) {
+    if (!date || typeof(date)!=="string") return console.warn("Unvalid input");
+    let dateSplitted = date.split('-');
+    let actualDate = new Date;
+    if(dateSplitted.length > 3 || dateSplitted.length < 3) return console.warn("Invalid date");
+    if(dateSplitted[0] > 31) return console.warn("Dia incorrecto");
+    if(dateSplitted[1] > 12) return console.warn("Mes incorrecto");
+    if(dateSplitted[2] > actualDate.getFullYear()) return console.warn("El año no puede ser mayor al actual");
+    let birthDate = new Date (dateSplitted[2], dateSplitted[1]-1, dateSplitted[0]);
+    let diff = actualDate.getFullYear() - birthDate.getFullYear();
+    birthDate.setFullYear(actualDate.getFullYear());
+    (birthDate > actualDate)//si aun no sucedido la fecha de cumpleaños
+        ? console.log(`Tu edad es ${diff-1} años`)
+        : console.log(`Tu edad es ${diff} años`)
+
+}
+
+diffDates("13-12-2021");
