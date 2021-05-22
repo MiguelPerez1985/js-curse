@@ -339,7 +339,24 @@ const diffDates = function (date = undefined) {
 
 diffDates("13-12-2021");*/
 
-/*
-18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
-19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
-20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero. */
+
+//18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
+
+
+const vocalConsonante = function (text = "") {
+    if (!text || typeof(text)!=="string" || !isNaN(text)) return console.warn("Unvalid input");
+    let array = text.replace(/[0-9]/g, '').split('');
+    let vocales = 0, consonantes = 0;
+    array.forEach(element => {
+    if (/a|e|i|o|u/.test(element)) vocales++ 
+    else if(/[a-zA-Z]/.test(element)) consonantes++
+    });
+    
+    return console.log(`Vocales: ${vocales}, Consonantes: ${consonantes}`);
+}
+vocalConsonante("Hola Mundo");
+
+
+
+//19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+//20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero. 
