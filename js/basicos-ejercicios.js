@@ -373,9 +373,11 @@ const proveName = function (name = "") {
 
 
 const verifyEmail = function (email = ""){
- 
+    if(!email || typeof(email)!=="string" || !isNaN(email)) return console.warn("Unvalid Email");
+    if (/[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(email)) return console.log(true);
+    else return console.log(false);
 } 
-
+verifyEmail("")
 /*
 
 21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
