@@ -405,7 +405,23 @@ const arrayAlCuadrado = function (array = undefined) {
   //arrayAlCuadrado([1, 4, 5]);
   
 
-//22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
+//22) Programa una función que dado un array devuelva el número mas alto y 
+//el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
+
+const altoBajo = function(array = undefined) {
+if (Array.isArray(array)) {
+    if (array.length === 0) return console.warn("Empty Array");
+  } else {
+        return console.warn("Unvalid Array");
+  }
+  let max = Math.max(...array);
+  let min = Math.min(...array);
+  console.log(`Min: ${min} - Max: ${max}`);
+}
+
+//altoBajo([1, 4, 5, 99, -60]);
+
+
 //23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares 
 //y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
 
