@@ -141,7 +141,6 @@ repeatedWord("", "");
 
 //7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
 
-
 /*
 const isItPalindome = function (text = "") {
     if(!text) return console.warn("The text is empty!");
@@ -178,7 +177,6 @@ const deletePattern = function (text = "", pattern = "") {
 
 deletePattern("Programa una función que elimine cierto patrón de caracteres de un texto dado", "a, e, i, o, ó, u");
 */
-
 
 /*
 9) Programa una función que obtenga un numero aleatorio entre 501 y 600.
@@ -264,7 +262,7 @@ const weatherConverter = function (num = undefined, scale = "") {
 //weatherConverter();
 */
 
-//15) Programa una función para convertir números de base binaria a decimal y 
+//15) Programa una función para convertir números de base binaria a decimal y
 //viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
 /*
  const binADec = function(valor = undefined, sistema = undefined) {
@@ -339,49 +337,76 @@ const diffDates = function (date = undefined) {
 
 diffDates("13-12-2021");*/
 
-
 //18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
 
+/*const vocalConsonante = function (text = "") {
+  if (!text || typeof text !== "string" || !isNaN(text))
+    return console.warn("Unvalid input");
+  let array = text.replace(/[0-9]/g, "").split("");
+  let vocales = 0,
+    consonantes = 0;
+  array.forEach((element) => {
+    if (/a|e|i|o|u/.test(element)) vocales++;
+    else if (/[a-zA-Z]/.test(element)) consonantes++;
+  });
 
-const vocalConsonante = function (text = "") {
-    if (!text || typeof(text)!=="string" || !isNaN(text)) return console.warn("Unvalid input");
-    let array = text.replace(/[0-9]/g, '').split('');
-    let vocales = 0, consonantes = 0;
-    array.forEach(element => {
-    if (/a|e|i|o|u/.test(element)) vocales++ 
-    else if(/[a-zA-Z]/.test(element)) consonantes++
-    });
-    
-    return console.log(`Vocales: ${vocales}, Consonantes: ${consonantes}`);
-}
+  return console.log(`Vocales: ${vocales}, Consonantes: ${consonantes}`);
+};/*
 //vocalConsonante("Hola Mundo");
-
-
 
 //19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
 
-const proveName = function (name = "") {
-    if(!name || typeof(name)!=="string" || !isNaN(name)) return console.warn("Unvalid name");
-    if (/^[a-zA-Z]+ [a-zA-Z]+$/.test(name) || /^[a-zA-Z]+$/.test(name)) return console.log(true);
-    else console.log(false); 
-}
+/*const proveName = function (name = "") {
+  if (!name || typeof name !== "string" || !isNaN(name))
+    return console.warn("Unvalid name");
+  if (/^[a-zA-Z]+ [a-zA-Z]+$/.test(name) || /^[a-zA-Z]+$/.test(name))
+    return console.log(true);
+  else console.log(false);
+};/*
 //proveName("")
 
-
-//20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") 
+//20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com")
 //devolverá verdadero.
 
+/*const verifyEmail = function (email = "") {
+  if (!email || typeof email !== "string" || !isNaN(email))
+    return console.warn("Unvalid Email");
+  if (
+    /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(
+      email
+    )
+  )
+    return console.log(true);
+  else return console.log(false);
+};*/
+//verifyEmail("")
 
-const verifyEmail = function (email = ""){
-    if(!email || typeof(email)!=="string" || !isNaN(email)) return console.warn("Unvalid Email");
-    if (/[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(email)) return console.log(true);
-    else return console.log(false);
-} 
-verifyEmail("")
-/*
 
-21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
-22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
-23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares 
-y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
-*/
+//21) Programa una función que dado un array numérico devuelve otro array 
+//con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
+const arrayAlCuadrado = function (array = undefined) {
+    if (Array.isArray(array)) {
+      if (array.length === 0) return console.warn("Empty Array");
+          array.forEach((element) => {
+          if (typeof element !== "number") return console.warn("Array need to be numeric");
+      });
+    } else {
+          return console.warn("Unvalid Array");
+    }
+    let array2 = [];
+    array2 = array.map(function(element) {
+        return Math.pow(element, 2);
+    })
+  
+    console.log(`[${array}] = [${array2}]`);
+  
+  };
+  
+  //arrayAlCuadrado([1, 4, 5]);
+  
+
+//22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
+//23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares 
+//y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
+
+
