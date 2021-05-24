@@ -221,15 +221,15 @@ factorial(8);
 
 //console.log(Number.isInteger(5/3));
 
-const esPrimo = function(numero = 0) {
-    if(!numero) return console.log("No ingresaste un número");
-    let count = 0;
-    for (let i = 1; i < numero + 1; i++) {
-        if(Number.isInteger(numero/i)) count ++;
-        if (count>2) return false;    
-    }
-    if(count === 2) return true;
-}
+const esPrimo = function (numero = 0) {
+  if (!numero) return console.log("No ingresaste un número");
+  let count = 0;
+  for (let i = 1; i < numero + 1; i++) {
+    if (Number.isInteger(numero / i)) count++;
+    if (count > 2) return false;
+  }
+  if (count === 2) return true;
+};
 /*
 //esPrimo();
 
@@ -384,20 +384,12 @@ diffDates("13-12-2021");*/
 //21) Programa una función que dado un array numérico devuelve otro array
 //con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
 const arrayAlCuadrado = function (array = undefined) {
-  if (Array.isArray(array)) {
-    if (array.length === 0) return console.warn("Empty Array");
-    array.forEach((element) => {
-      if (typeof element !== "number")
-        return console.warn("Array need to be numeric");
-    });
-  } else {
-    return console.warn("Unvalid Array");
-  }
-  let array2 = [];
-  array2 = array.map(function (element) {
-    return Math.pow(element, 2);
-  });
+  if (!Array.isArray(array)) return console.warn("Unvalid Array");
+  if (array.length === 0) return console.warn("Empty Array");
 
+  const noEsNumero = (element) => typeof element !== "number";
+  if (array.some(noEsNumero)) return console.warn("Array need to be numeric");
+  let array2 = array.map((el) => el * el);
   console.log(`[${array}] = [${array2}]`);
 };
 
@@ -407,14 +399,11 @@ const arrayAlCuadrado = function (array = undefined) {
 //el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
 
 const altoBajo = function (array = undefined) {
-  if (Array.isArray(array)) {
-    if (array.length === 0) return console.warn("Empty Array");
-    let max = Math.max(...array);
-    let min = Math.min(...array);
-    console.log(`Min: ${min} - Max: ${max}`);
-  } else {
-    return console.warn("Unvalid Array");
-  }
+  if (!Array.isArray(array)) return console.warn("Unvalid Array");
+  if (array.length === 0) return console.warn("Empty Array");
+  const noEsNumero = (element) => typeof element !== "number";
+  if (array.some(noEsNumero)) return console.warn("Array need to be numeric");
+  console.log(`Min: ${Math.max(...array)} - Max: ${Math.min(...array)}`);
 };
 
 //altoBajo([1, 4, 5, 99, -60]);
@@ -425,20 +414,99 @@ const altoBajo = function (array = undefined) {
 const paresImpares = function (array = undefined) {
   if (!Array.isArray(array)) return console.warn("Unvalid Array");
   if (array.length === 0) return console.warn("Empty Array");
+  const noEsNumero = (element) => typeof element !== "number";
+  if (array.some(noEsNumero)) return console.warn("Array need to be numeric");
 
-  const noEsNumero = (element) => typeof element !== "number"; 
-  if(array.some(noEsNumero)) return console.warn("Array need to be numeric"); 
-
-  let objeto = {
-      pares: [],
-      primos: []
-  }
-  array.forEach((element, index) => {
-      if(element % 2 === 0) objeto.pares.push(element);
-      if(esPrimo(element)) objeto.primos.push(element);
+  console.log({
+    pares: array.filter((num) => num % 2 === 0),
+    impares: array.filter((num) => num % 2 === 1),
   });
-  console.log(objeto);
 };
 
-//paresImpares([2,4,6,7,1,1]);
+/*paresImpares([2,4,6,7,1,1]);
+paresImpares("hola");
+paresImpares([]);
+paresImpares([1,"a"]);
+paresImpares();
 
+//24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, 
+//el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, 
+//pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
+//25) Programa una función que dado un arreglo de elementos, elimine los duplicados, 
+//pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
+//26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.*/
+
+const ascDescArray = (arr = undefined) => {
+  if (!Array.isArray(arr)) return console.warn("Unvalid Array");
+  if (arr.length === 0) return console.warn("Empty Array");
+  const noEsNumero = (element) => typeof element !== "number";
+  if (arr.some(noEsNumero)) return console.warn("Array need to be numeric");
+
+  return console.info({
+    arr,
+    ascent: arr.map(el => el).sort(),
+    descent: arr.map(el => el).sort().reverse()
+  });
+};
+
+//ascDescArray([7,5,7,8,6]);
+
+const deleteDuplicates = (array = undefined) => {
+  if (!Array.isArray(array)) return console.warn("Unvalid Array");
+  if (array.length < 1) return console.warn("Empty Array");
+  if (!array) console.warn("Unvalid array");
+
+  return console.log(new Set(array));
+};
+
+//deleteDuplicates([1,2,3,4,4,5,6, {},[],{}, [], true, true, "x","x","a","ab"]);
+
+const promedio = (arr = undefined) => {
+  if (!Array.isArray(arr)) return console.warn("Unvalid Array");
+  if (arr.length === 0) return console.warn("Empty Array");
+  const noEsNumero = (element) => typeof element !== "number";
+  if (arr.some(noEsNumero)) return console.warn("Array need to be numeric");
+  let promedio = 0;
+  /*for (const num of arr) {
+      promedio = promedio + num;
+  }
+  console.log("El promedio es: " + promedio / arr.length);*/
+   return console.info(
+       arr.reduce((total, num, index, arr)=>{
+           total += num;
+           if (index === arr.length-1) {
+               return `Promedio: ${total/arr.length}`;
+           }else{
+               return total;
+           } 
+       })
+   )
+};
+
+//promedio([10,10,7,9])
+
+
+/*
+27) Programa una clase llamada Pelicula.
+
+La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+  - Todos los datos del objeto son obligatorios.
+  - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
+     7 restantes números.
+  - Valida que el título no rebase los 100 caracteres.
+  - Valida que el director no rebase los 50 caracteres.
+  - Valida que el año de estreno sea un número entero de 4 dígitos.
+  - Valida que el país o paises sea introducidos en forma de arreglo.
+  - Valida que los géneros sean introducidos en forma de arreglo.
+  - Valida que los géneros introducidos esten dentro de los géneros 
+     aceptados*.
+  - Crea un método estático que devuelva los géneros aceptados*.
+  - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
+    decimal de una posición.
+  - Crea un método que devuelva toda la ficha técnica de la película.
+  - Apartir de un arreglo con la información de 3 películas genera 3 
+    instancias de la clase de forma automatizada e imprime la ficha técnica 
+    de cada película.
+
+* Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
+*/
