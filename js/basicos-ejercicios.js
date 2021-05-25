@@ -520,11 +520,11 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
     this.calificacionImdb = calificacionImdb;*/
 class Pelicula {
 
-  constructor({ idImdb, titulo, director, añoEstreno, pais, genero, calImdb}) {
+  constructor({ idImdb, titulo, director, anioEstreno, pais, genero, calImdb}) {
     this.idImdb = idImdb;
     this.titulo = titulo;
     this.director = director;
-    this.añoEstreno = añoEstreno;
+    this.anioEstreno = anioEstreno;
     this.pais = pais;
     this.genero = genero;
     this.calImdb = calImdb;
@@ -532,10 +532,10 @@ class Pelicula {
     this.validacionIdImdb(idImdb);
     this.validacionTitulo(titulo);
     this.validacionDirector(director);
-    this.validacionAñoEstreno(añoEstreno);
+    this.validacionAnioEstreno(anioEstreno);
     this.validacionPais(pais);
     this.validacionGenero(genero);
-    this.valiudaci
+    this.validacionCalif(calImdb);
     
   }
   static generosAceptados(){
@@ -573,10 +573,10 @@ class Pelicula {
     return true;
   }
 
-  validacionAñoEstreno(añoEstreno){
-    console.log(añoEstreno);
-    if(typeof añoEstreno !== "number" || Number.isInteger(añoEstreno) === false) return console.error(`${añoEstreno} no es un número válido`);
-    if(!(añoEstreno.toString().split('').length === 4)) return console.error(`${añoEstreno} no es una fecha válida`);
+  validacionAnioEstreno(anioEstreno){
+    console.log(anioEstreno);
+    if(typeof anioEstreno !== "number" || Number.isInteger(anioEstreno) === false) return console.error(`${anioEstreno} no es un número válido`);
+    if(!(anioEstreno.toString().split('').length === 4)) return console.error(`${anioEstreno} no es una fecha válida`);
   }
   
   validacionPais(pais){
@@ -592,7 +592,19 @@ class Pelicula {
     if(this.getGenerosAceptados().includes(genero)===false) return console.error(`"${genero}" no fué encontrado`);
 
   }
+  validacionCalif(calImdb){
+    if (typeof calImdb !== "number") console.error(`"${calImdb}" no es un numero valido`); 
+    calImdb = calImdb.toFixed(1);
+    if (calImdb>10 || calImdb<0) return console.error(`El rango de calificación es de 1 a 10`);
+    console.log(calImdb);
+  }
+
+  getFichaTecnica(){
+    return console.log(
+      this.idImdb, this.titulo, this.director, this.anioEstreno, this.pais, this.genero, this.calImdb
+    );
+  }
 }
 
-const instancia = new Pelicula({ idImdb: "AB1234567", titulo: "Terminator 2: Judgement Day", director: "James Cameron", añoEstreno: 1991, pais: [1], genero: "horror"});
-console.log(instancia);
+const instancia = new Pelicula({ idImdb: "AB1234567", titulo: "Terminator 2: Judgement Day", director: "James Cameron", anioEstreno: 1991, pais: ["Mexico"], genero: "horror", calImdb: 8});
+instancia.getFichaTecnica();
