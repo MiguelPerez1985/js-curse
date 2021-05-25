@@ -444,8 +444,11 @@ const ascDescArray = (arr = undefined) => {
 
   return console.info({
     arr,
-    ascent: arr.map(el => el).sort(),
-    descent: arr.map(el => el).sort().reverse()
+    ascent: arr.map((el) => el).sort(),
+    descent: arr
+      .map((el) => el)
+      .sort()
+      .reverse(),
   });
 };
 
@@ -471,20 +474,19 @@ const promedio = (arr = undefined) => {
       promedio = promedio + num;
   }
   console.log("El promedio es: " + promedio / arr.length);*/
-   return console.info(
-       arr.reduce((total, num, index, arr)=>{
-           total += num;
-           if (index === arr.length-1) {
-               return `Promedio: ${total/arr.length}`;
-           }else{
-               return total;
-           } 
-       })
-   )
+  return console.info(
+    arr.reduce((total, num, index, arr) => {
+      total += num;
+      if (index === arr.length - 1) {
+        return `Promedio: ${total / arr.length}`;
+      } else {
+        return total;
+      }
+    })
+  );
 };
 
 //promedio([10,10,7,9])
-
 
 /*
 27) Programa una clase llamada Pelicula.
@@ -510,3 +512,87 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
 
 * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
 */
+//, director, añoEstreno, pais, genero, calificacionImdb
+//    this.director = director;
+/*    this.añoEstreno = añoEstreno;
+    this.pais = pais;
+    this.genero = genero;
+    this.calificacionImdb = calificacionImdb;*/
+class Pelicula {
+
+  constructor({ idImdb, titulo, director, añoEstreno, pais, genero, calImdb}) {
+    this.idImdb = idImdb;
+    this.titulo = titulo;
+    this.director = director;
+    this.añoEstreno = añoEstreno;
+    this.pais = pais;
+    this.genero = genero;
+    this.calImdb = calImdb;
+
+    this.validacionIdImdb(idImdb);
+    this.validacionTitulo(titulo);
+    this.validacionDirector(director);
+    this.validacionAñoEstreno(añoEstreno);
+    this.validacionPais(pais);
+    this.validacionGenero(genero);
+    this.valiudaci
+    
+  }
+  static generosAceptados(){
+    return this.generosAceptados();
+  }
+  getGenerosAceptados(){
+    return ["Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary" ,"Drama", "Family", "Fantasy",
+     "Film Noir", "Game-Show", "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport",
+     "Talk-Show", "Thriller", "War", "Western"].map(e => e.toLowerCase());
+  }
+
+  validacionCadenas(dato, cadena) {
+    if (!cadena) return console.error(`${dato} invalido`);
+    if (typeof cadena !== "string") return console.error(`${dato} invalido`);
+  }
+
+  validacionIdImdb(idImdb) {
+    console.log(`idImdb: ${idImdb}`);
+    this.validacionCadenas("IdImdb",idImdb);
+    if (/^[a-zA-Z]{2}[0-9]{7}$/.test(idImdb) === false) return console.error(`"${idImdb}" no es una ID válida`);
+    return true;
+  }
+
+  validacionTitulo(titulo){
+    console.log(titulo);
+    this.validacionCadenas("titulo",titulo);
+    if (/^.{1,100}$/.test(titulo) === false) return console.error(`"${titulo}" no es un título valido`);
+    return true;
+  }
+
+  validacionDirector(director){
+    console.log(director);
+    this.validacionCadenas("director",director);
+    if (/^.{1,50}$/.test(director) === false) return console.error(`"${director}" no es un director valido`);
+    return true;
+  }
+
+  validacionAñoEstreno(añoEstreno){
+    console.log(añoEstreno);
+    if(typeof añoEstreno !== "number" || Number.isInteger(añoEstreno) === false) return console.error(`${añoEstreno} no es un número válido`);
+    if(!(añoEstreno.toString().split('').length === 4)) return console.error(`${añoEstreno} no es una fecha válida`);
+  }
+  
+  validacionPais(pais){
+    if(!Array.isArray(pais)) return console.error(`"${pais}" no es un arreglo`);
+    if(pais.length === 0) return console.error(`"${pais}" es un arreglo vacio`);
+  }
+
+  validacionGenero(genero){
+    this.validacionCadenas("genero", genero);
+    genero = genero.toLowerCase();
+    console.log(genero);
+    console.log();
+    if(this.getGenerosAceptados().includes(genero)===false) return console.error(`"${genero}" no fué encontrado`);
+
+  }
+}
+
+const instancia = new Pelicula({ idImdb: "AB1234567", titulo: "Terminator 2: Judgement Day", director: "James Cameron", añoEstreno: 1991, pais: [1], genero: "horror"});
+console.log(instancia);
