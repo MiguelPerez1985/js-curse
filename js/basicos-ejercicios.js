@@ -518,7 +518,7 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
     this.pais = pais;
     this.genero = genero;
     this.calificacionImdb = calificacionImdb;*/
-    
+
 class Pelicula {
 
   constructor({ idImdb, titulo, director, anioEstreno, pais, genero, calImdb}) {
@@ -542,11 +542,9 @@ class Pelicula {
 
 
   static generosAceptados(){
-    return console.log(["Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary" ,"Drama", "Family", "Fantasy",
-     "Film Noir", "Game-Show", "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport",
-     "Talk-Show", "Thriller", "War", "Western"]);
+    return this.getGenerosAceptados()
   }
-  getGenerosAceptados(){
+  static get getGenerosAceptados(){
     return ["Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary" ,"Drama", "Family", "Fantasy",
      "Film Noir", "Game-Show", "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport",
      "Talk-Show", "Thriller", "War", "Western"].map(e => e.toLowerCase());
@@ -564,6 +562,7 @@ class Pelicula {
   }
 
   validacionIdImdb(idImdb) {
+    
     this.validacionCadenas("IdImdb",idImdb);
     if (/^[a-zA-Z]{2}[0-9]{7}$/.test(idImdb) === false) return console.error(`"${idImdb}" no es una ID válida`);
     return true;
@@ -594,7 +593,7 @@ class Pelicula {
     this.validacionArrays("genero", genero);
     genero = genero.toString().split(',').map(e => e.toLowerCase());
     genero.forEach(element => {
-      if(this.getGenerosAceptados().includes(element)===false) return console.error(`"${element}" no fué encontrado`);
+      if(Pelicula.getGenerosAceptados. includes(element)===false) return console.error(`"${element}" no fué encontrado`);
     });
     
 
@@ -615,12 +614,9 @@ class Pelicula {
 
 
 let peliculas = [
-  { idImdb: "tt0103064", titulo: "Terminator 2: Judgement Day", director: "James Cameron", anioEstreno: 1991, pais: ["USA"], genero: ["Action","Sci-Fi"], calImdb: 8.5},
+  { idImdb: "tt01030", titulo: "Terminator 2: Judgement Day", director: "James Cameron", anioEstreno: 1991, pais: ["USA"], genero: ["Action","Sci-Fi"], calImdb: 8.5},
   { idImdb: "tt0133093", titulo: "The Matrix", director: "Lana WachowskiLilly, Lilly Wachowski", anioEstreno: 1999, pais: ["Australia", "USA"], genero: ["Action","Sci-Fi"], calImdb: 8.7},
   { idImdb: "tt0083658", titulo: "Blade Runner", director: "Ridley Scott", anioEstreno: 1982, pais: ["USA"], genero: ["Western", "Horror","Thriller"], calImdb: 8.1}
 ]
 
-for (const iterator of peliculas) {
-  let instancia = new Pelicula(iterator)
-  instancia.getFichaTecnica();
-}
+peliculas.forEach(e => new Pelicula(e).getFichaTecnica());
