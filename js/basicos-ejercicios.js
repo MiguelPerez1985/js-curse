@@ -518,6 +518,7 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
     this.pais = pais;
     this.genero = genero;
     this.calificacionImdb = calificacionImdb;*/
+    
 class Pelicula {
 
   constructor({ idImdb, titulo, director, anioEstreno, pais, genero, calImdb}) {
@@ -538,8 +539,12 @@ class Pelicula {
     this.validacionCalif(calImdb);
     
   }
+
+
   static generosAceptados(){
-    return this.generosAceptados();
+    return console.log(["Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary" ,"Drama", "Family", "Fantasy",
+     "Film Noir", "Game-Show", "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport",
+     "Talk-Show", "Thriller", "War", "Western"]);
   }
   getGenerosAceptados(){
     return ["Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary" ,"Drama", "Family", "Fantasy",
@@ -552,59 +557,70 @@ class Pelicula {
     if (typeof cadena !== "string") return console.error(`${dato} invalido`);
   }
 
+  validacionArrays(dato, array){
+    if(!Array.isArray(array)) return console.error(`"${dato}" no es un arreglo`);
+    if(array.length === 0) return console.error(`"${dato}" es un arreglo vacio`);
+
+  }
+
   validacionIdImdb(idImdb) {
-    console.log(`idImdb: ${idImdb}`);
     this.validacionCadenas("IdImdb",idImdb);
     if (/^[a-zA-Z]{2}[0-9]{7}$/.test(idImdb) === false) return console.error(`"${idImdb}" no es una ID válida`);
     return true;
   }
 
   validacionTitulo(titulo){
-    console.log(titulo);
     this.validacionCadenas("titulo",titulo);
     if (/^.{1,100}$/.test(titulo) === false) return console.error(`"${titulo}" no es un título valido`);
     return true;
   }
 
   validacionDirector(director){
-    console.log(director);
     this.validacionCadenas("director",director);
     if (/^.{1,50}$/.test(director) === false) return console.error(`"${director}" no es un director valido`);
     return true;
   }
 
   validacionAnioEstreno(anioEstreno){
-    console.log(anioEstreno);
     if(typeof anioEstreno !== "number" || Number.isInteger(anioEstreno) === false) return console.error(`${anioEstreno} no es un número válido`);
     if(!(anioEstreno.toString().split('').length === 4)) return console.error(`${anioEstreno} no es una fecha válida`);
   }
   
   validacionPais(pais){
-    if(!Array.isArray(pais)) return console.error(`"${pais}" no es un arreglo`);
-    if(pais.length === 0) return console.error(`"${pais}" es un arreglo vacio`);
+    this.validacionArrays("pais", pais)
   }
 
   validacionGenero(genero){
-    this.validacionCadenas("genero", genero);
-    genero = genero.toLowerCase();
-    console.log(genero);
-    console.log();
-    if(this.getGenerosAceptados().includes(genero)===false) return console.error(`"${genero}" no fué encontrado`);
+    this.validacionArrays("genero", genero);
+    genero = genero.toString().split(',').map(e => e.toLowerCase());
+    genero.forEach(element => {
+      if(this.getGenerosAceptados().includes(element)===false) return console.error(`"${element}" no fué encontrado`);
+    });
+    
 
   }
   validacionCalif(calImdb){
     if (typeof calImdb !== "number") console.error(`"${calImdb}" no es un numero valido`); 
     calImdb = calImdb.toFixed(1);
     if (calImdb>10 || calImdb<0) return console.error(`El rango de calificación es de 1 a 10`);
-    console.log(calImdb);
   }
 
   getFichaTecnica(){
     return console.log(
-      this.idImdb, this.titulo, this.director, this.anioEstreno, this.pais, this.genero, this.calImdb
+     `ID IMDB: ${this.idImdb}, Titulo: ${this.titulo}, Director: ${this.director}, Año de estreno: ${this.anioEstreno}, Pais: ${this.pais}, Genero: ${this.genero}, Calificación: ${this.calImdb}`
     );
   }
 }
 
-const instancia = new Pelicula({ idImdb: "AB1234567", titulo: "Terminator 2: Judgement Day", director: "James Cameron", anioEstreno: 1991, pais: ["Mexico"], genero: "horror", calImdb: 8});
-instancia.getFichaTecnica();
+
+
+let peliculas = [
+  { idImdb: "tt0103064", titulo: "Terminator 2: Judgement Day", director: "James Cameron", anioEstreno: 1991, pais: ["USA"], genero: ["Action","Sci-Fi"], calImdb: 8.5},
+  { idImdb: "tt0133093", titulo: "The Matrix", director: "Lana WachowskiLilly, Lilly Wachowski", anioEstreno: 1999, pais: ["Australia", "USA"], genero: ["Action","Sci-Fi"], calImdb: 8.7},
+  { idImdb: "tt0083658", titulo: "Blade Runner", director: "Ridley Scott", anioEstreno: 1982, pais: ["USA"], genero: ["Western", "Horror","Thriller"], calImdb: 8.1}
+]
+
+for (const iterator of peliculas) {
+  let instancia = new Pelicula(iterator)
+  instancia.getFichaTecnica();
+}
