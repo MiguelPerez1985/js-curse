@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asincronía en JavaScript</title>
+  </head>
+
+  <script>
+    /*console.log("Inicio");
+    setTimeout(()=>{
+        console.log("Ejecutando un Set Time Out");
+    }, 1000)
+
+    setInterval(()=>{
+        console.log(new Date().toLocaleTimeString());
+    }, 1000)*/
+
+    /*let timeOut = setTimeout(()=>{
+        console.log("Ejecutando un Set Time Out");
+    }, 1000)
+    clearTimeout(timeOut);
+
+    let intervalo = setInterval(()=>{
+        console.log(new Date().toLocaleTimeString());
+    }, 5000)*/
+    //clearTimeout(intervalo);
+
+    /* function callback() {
+        console.log("I'm a Callback");
+    }
+
+    function mensaje(fn) {
+        fn();
+    }
+
+    mensaje(callback);
+*/
+    /*
+    function sumaCallBack(value1, value2, callback) {
+      setTimeout(function () {
+        callback(value1, value2, value1 + value2);
+      }, 1000);
+    }
+
+    sumaCallBack(1, 2, (v1, v2, operacion) => {
+      console.log({
+        v1,
+        v2,
+        operacion,
+      });
+      sumaCallBack(2, 3, (v1, v2, operacion) => {
+        console.log({
+          v1,
+          v2,
+          operacion,
+        });
+        sumaCallBack(4, 5, (v1, v2, operacion) => {
+          console.log({
+            v1,
+            v2,
+            operacion,
+          });
+        });
+      });
+    });*/
+
+    function sumaPromise(value1, value2) {
+        if (typeof value1 !== "number"|| typeof value2 !== "number") return Promise.reject (`El valor ingresado no es un numero`);
+      return new Promise((resolve, reject) => {
+        setTimeout(function () {
+           resolve({
+               value1,
+               value2,
+               result: value1 + value2
+           })
+        }, 1000);
+      });
+    }
+    sumaPromise(1,"a")
+    .then((obj)=> {
+        //console.log(obj);
+        console.log("Inicio Promise");
+        console.log("Resultado:", obj.result);
+        return sumaPromise(4,5);
+    })
+    .then((obj)=>{
+        console.log("Resultado:", obj.result);
+        return sumaPromise(6,7);
+    })
+    .then((obj)=>{
+        console.log("Resultado:", obj.result);
+        return sumaPromise(8,9);
+    })
+    .then((obj)=>{
+        console.log("Resultado:", obj.result);
+        return sumaPromise(10,11);
+    })
+    .catch(err => console.error("Error:", err));
+  </script>
+  <body></body>
+</html>
