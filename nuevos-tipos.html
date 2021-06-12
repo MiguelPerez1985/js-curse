@@ -9,7 +9,7 @@
 <body>
     <h1>Nuevos tipos de JavaScript</h1>
     <script>
-
+        /*
         let id = Symbol("hola");
         let id2 = Symbol("hola");
 
@@ -23,6 +23,60 @@
         
         persona.NOMBRE = "Jonathan Mircha"
         console.log(persona[NOMBRE]);
+
+        */
+/*
+        const mapa = new Map();
+        mapa.set("nombre", "Jon");
+        mapa.set([], "MirCha");
+        console.log(mapa);
+        console.log(mapa.keys());
+        console.log(mapa.has("nombre"));
+        console.log(mapa.get("apellido"));
+        mapa.delete("apellido");
+        console.log(mapa);
+*/
+/*
+        const mapa2 = new Map([["nombre","Miguel"],["apellido","Perez"]]);
+        console.log(mapa2); 
+
+        const llavesMapa2 = [...mapa2.keys()]
+        const llavesMapa3 = [...mapa2.values()]
+        console.log(llavesMapa2);
+        console.log(llavesMapa3);
+*/
+/*
+        let array1 = [1,2,3,4,5]
+        const iterador = array1[Symbol.iterator]();
+
+        console.log(iterador.next());
+
+        let next = iterador.next();
+
+        while(!next.done){
+            console.log(next.value);
+            next = iterador.next();
+        }
+*/
+//Generator
+         
+        /*function* iterable() {
+         yield "hola";
+         console.log("UWU");
+         yield "como estás";    
+         }
+
+         let iterador = iterable();
+         
+         for (let y of iterador) {
+             console.log(y);
+             
+         }
+
+         const arr = [...iterable()];
+         console.log(arr);
+         */
+
     </script>
 </body>
 </html>
