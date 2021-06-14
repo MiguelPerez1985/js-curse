@@ -247,7 +247,7 @@ $newCard.querySelector("figcaption").insertAdjacentText("afterbegin", "Any")
 // $cards.before($newCard); // ultimo hijo
 // $cards.after($newCard); // hermano posterior (de la section card)
 
-
+/*
 function holaMundo() {
     alert("HolaMundo");
     console.log(event);
@@ -284,7 +284,136 @@ $eventoMultiple.addEventListener("click", ()=> saludar("Jon"));
 $eventoRemover.addEventListener("dblclick", removerEvento);
 
 
+*/
+/*
+const $divsEventos = document.querySelectorAll(".eventos-flujo div"),
+$linkEventos = document.querySelector(".eventos-flujo a");
+console.log($divsEventos);
 
+function flujoEventos(e) {
+    //console.log(e);
+    console.log("Hola te saluda " + this.className + " El click lo originó " + e.target.className);
+    e.stopPropagation();
+}
+$divsEventos.forEach((div)=>{
+    //fase burbuja
+    div.addEventListener("click", flujoEventos)
+    //fase captura;
+    //div.addEventListener("click", flujoEventos, false);
 
+    // otras formas: burbuja
+    //div.addEventListener("click", flujoEventos, {
+    //    capture:false
+    //});
+    // otras formas: captura
+    //div.addEventListener("click", flujoEventos, {
+    //    capture:true,
+        //para que se ejecute solo una2
+    //    once:true
+    //});
+})
+
+$linkEventos.addEventListener("click", e=>{
+    alert("hola");
+    e.preventDefault();
+    e.stopPropagation();
+})
  
+*/
 
+/*
+//Delegacion de eventos (al Document)
+function flujoEventos(e) {
+    //console.log(e);
+    console.log("Hola te saluda " + this + " El click lo originó " + e.target.className);
+    e.stopPropagation();
+}
+document.addEventListener("click",(e)=>{
+    console.log(`Click en ${e.target}`);
+    if(e.target.matches(".eventos-flujo a")){
+        alert("AAAAAAAAAAAAAAAAAAAAAAAA");
+        e.preventDefault();
+    }
+    if (e.target.matches(".eventos-flujo div")) {
+        flujoEventos(e);
+    }
+})
+*/
+/*
+window.addEventListener("resize", (e)=>{
+    console.clear();
+    console.log("Evento Resize");
+    console.log(window.innerWidth);
+    console.log(window.innerHeight);
+    console. log(window.outerWidth);
+    console.log(window.outerHeight);  
+    
+});
+
+window.addEventListener("scroll", e=>{
+    console.clear();
+    console.log("Evento Scroll");
+    console.log(window.scrollX);
+    console.log(window.scrollY);
+
+})
+*/
+/*
+window.addEventListener("load",e=>{
+
+    console.log("Evento load");
+    console.log(window.screenX);
+    console.log(window.screenY);
+    console.log(e);
+})
+
+document.addEventListener("DOMContentLoaded", e=>{
+    console.log("DOMContentLoaded");
+    console.log(window.screenX);
+    console.log(window.screenY);
+    console.log(e);
+})
+*/
+/*
+//BOM METODOS
+
+const $btnAbrir = document.getElementById('abrir-ventana'),
+$btnCerrar = document.getElementById('cerrar-ventana'),
+$btnImprimir = document.getElementById('imprimir-ventana');
+
+let ventana;
+$btnAbrir.addEventListener("click", (e)=>{
+    ventana = window.open("https://soundcloud.com/paintedskiesdnb")
+})
+
+$btnCerrar.addEventListener("click", (e)=>{
+    window.close()
+})
+
+$btnImprimir.addEventListener("click", (e)=>{
+    window.print();
+})
+*/
+
+//OBJETOS DE BOM
+/*
+console.log("Objeto URL (location)");
+console.log(location);
+console.log(location.hostname);*/
+
+//console.log("Objeto History");
+//console.log(history);
+//history.back(1);
+//history.forward(1);
+//history.forward.go(-1)
+
+console.log("Objeto Navigator");
+console.log(navigator);
+console.log(navigator.geolocation);
+console.log(navigator.mediaDevices);
+console.log(navigator.mimeTypes);
+console.log(navigator.onLine);
+console.log(navigator.serviceWorker);
+console.log(navigator.storage);
+console.log(navigator.usb);
+console.log(navigator.userAgent);

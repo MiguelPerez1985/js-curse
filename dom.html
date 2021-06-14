@@ -39,6 +39,22 @@
         .sepia{
             filter: sepia(1);
         }
+        
+        .eventos-flujo div{
+            padding: 4rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .uno{
+            background-color: yellow;
+        }
+        .dos{
+            background-color: gold;
+        }
+        .tres{
+            background-color: lightyellow;
+        }
     </style>    
 </head>
 <body>
@@ -93,6 +109,30 @@
     <button id="evento-semantico">Evento con manejador semántico</button>
     <button id="evento-multiple">Evento con manejador multiple</button>
     <button id="evento-remover">Removiendo eventos con manejador multiple</button>
+    <br><br>
+    <h4>Flujo de eventos</h4>
+    <section class="eventos-flujo">
+        <div class="uno">
+            1
+            <div class="dos">
+                2
+                <div class="tres">
+                    3
+                    <a href="https://soundcloud/paintedskiesdnb" target="_blank" rel="noopener">SoundCloud</a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br><br><br>
+    <h3 style="width: 2000px;">Manejo del BOM</h3>
+    
+    <button id="abrir-ventana">Abrir</button>
+    <br><br>
+    <button id="cerrar-ventana">Cerrar</button>
+    <br><br>
+    <button id="imprimir-ventana">Imprimir</button>
+
     <script src="js/dom.js"></script>
 </body>
 </html>

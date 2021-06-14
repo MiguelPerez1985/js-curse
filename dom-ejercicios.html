@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/hamburgers.css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
+
+    body,
+    html {
+      background-color: lightyellow;
+      margin: 0;
+      font-family: "Rubik", sans-serif;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .toggle-bar-opened {
+      z-index: 1;
+      position: absolute;
+      opacity: 85%;
+      /*transition: 0.8s;*/
+      height: 100%;
+      width: 100%;
+      background-color: black;
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: 0.8s;
+    }
+    .toggle-bar-closed {
+      
+      
+      /*transition:  0.5s;*/
+      
+      
+    }
+    .toggle-menu{
+      
+      
+      height: 50vh;
+      width: 50vw;
+      background-color: red;
+    }
+    .toggle-content {
+      
+      color: white;
+      display: none;
+    }
+    .toggle-content-opened{
+      display: block;
+      transition:  0.8s;
+    }
+
+    #nav-bar {
+      height: 7vh;
+      background-color: gold;
+      padding: 2vh;
+      display: flex;
+      justify-content: center;
+    }
+
+    #nav-bar h1 {
+      margin: 0;
+      font-size: 5vh;
+    }
+
+    main {
+      justify-content: center;
+      height: 100%;
+      /*background-color: darkcyan;*/
+      transition: 0.8s;
+    }
+
+    .div-main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      /*background-color: blueviolet;*/
+      height: 89vh;
+      width: 100%;
+      /*background-color: darkgoldenrod;*/
+    }
+
+    .container-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 0px;
+      /*background-color: blue;*/
+      height: 89vh;
+      /* background-color: darkgray;*/
+    }
+
+    .container-hamburguesa {
+      width: 100%;
+      height: 7rem;
+      /*!background-color: chartreuse;*/
+      display: flex;
+      justify-content: flex-end;
+      /*background-color: darkgreen;*/
+    }
+
+    .menu-hamburguesa {
+      height: 4.5rem;
+      width: 4.5rem;
+      margin-right: 2rem;
+      position: absolute;
+      background-color: brown;
+      margin-left: auto;
+      border-radius: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      z-index: 2;
+    }
+  </style>
+
+  <body>
+    <nav id="nav-bar">
+      <h1>Ejercicios del DOM</h1>
+    </nav>
+    <main>
+      <div class="div-main">
+        <div class="container-main">
+          <h1>Seccion 1</h1>
+        </div>
+        <div class="container-hamburguesa">
+          <div class="menu-hamburguesa">
+            <button class="hamburger hamburger--collapse" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="toggle-bar-closed">
+      <div class="toggle-content">
+        <div class="toggle-menu">
+          Seccion 1
+        </div>
+      </div>
+    </div>
+    <footer></footer>
+    <script src="js/menu-hamburguesa.js" type="module"></script>
+  </body>
+</html>
