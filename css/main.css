@@ -1,0 +1,173 @@
+
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
+/* ****** RESET CSS ****** */
+
+:root{
+--main-font: "Rubik";
+--main-color: gold;
+--second-color: black;
+--main-modal-color: rgba(247,222,30,0.85);
+--second-modal-color: rgba(34,34,34,0.85);
+--container-width: 1200px;
+}
+/* Reset HTML*/
+body,html { 
+      box-sizing: border-box;
+      font-family: var(--main-font);
+      scroll-behavior: smooth;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      overflow-x: hidden;
+
+    }
+    *,
+    *:before,
+    *:after{
+      box-sizing: inherit;
+    }
+
+    img{
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .toggle-bar-opened {
+      z-index: 1;
+      position: absolute;
+      opacity: 85%;
+      /*transition: 0.8s;*/
+      height: 100%;
+      width: 100%;
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: 0.8s;
+      position: fixed;
+    }
+    .toggle-bar-closed {
+      
+      
+      /*transition:  0.5s;*/
+      
+      
+    }
+    .toggle-menu{
+      position: relative;
+      height: 50vh;
+      width: 50vw;
+      /*background-color: red;*/
+      transition: 1s;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .toggle-content {
+      
+      color: white;
+      display: none;
+    }
+    .toggle-content-opened{
+      display: block;
+      transition:  0.8s;
+
+    }
+
+    .section{
+      font-size: 1.5rem;
+      height: 5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2px;
+      
+    }
+    .section a{
+      text-decoration: none;
+      color: white;
+    }
+    .section:hover{
+      box-shadow: brown;
+      /*background-color: gold;*/
+      font-size: 1.7rem;
+      border-radius: 1rem;
+      box-shadow: cadetblue;
+      transition: 0.5s;
+    }
+    #nav-bar {
+      height: 7vh;
+      width: 100%;
+      position: fixed;
+      background-color: var(--main-color);
+      padding: 2vh;
+      display: flex;
+      justify-content: center;
+      
+      z-index: 3;
+    }
+
+    #nav-bar h1 {
+      margin: 0;
+      font-size: 5vh;
+    }
+
+    main {
+      justify-content: center;
+      height: 100%;
+      background-color: aquamarine;
+      /*background-color: darkcyan;*/
+      transition: 0.8s;
+    }
+
+    .div-main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      /*background-color: blueviolet;*/      
+      height: 100vh;
+      width: 100%;
+      /*background-color: darkgoldenrod;*/
+    }
+
+    .container-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20vh;
+      /*background-color: blue;*/
+      height: 89vh;
+      /* background-color: darkgray;*/
+      transition: 0.8s;
+    }
+    section{
+        
+    }
+
+    .container-hamburguesa {
+      width: 100%;
+      height: 7rem;
+      /*!background-color: chartreuse;*/
+      display: flex;
+      justify-content: flex-end;
+      /*background-color: darkgreen;*/
+    }
+
+    .menu-hamburguesa {
+      height: 4.5rem;
+      width: 4.5rem;
+      margin-right: 2rem;
+      background-color: brown;
+      margin-left: auto;
+      border-radius: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      z-index: 2;
+      
+    }
+    
