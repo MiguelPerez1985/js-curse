@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-dark>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,30 +11,35 @@
     />
     <link rel="stylesheet" href="css/main2.css" />
   </head>
+
   <body>
     <header class="header">
       <h1>Ejercicios del DOM</h1>
     </header>
-    <button class="panel-btn hamburger hamburger--collapse" type="button">
-      <span class="hamburger-box">
-        <span class="hamburger-inner"></span>
-      </span>
-    </button>
+      <button class="panel-btn hamburger hamburger--collapse" type="button">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>                                 
+      </button>
     <aside class="panel">
       <nav class="menu">
-        <a href="#seccion1">Sección 1</a>
-        <a href="#seccion2">Sección 2</a>
-        <a href="#seccion3">Sección 3</a>
+        <a href="#seccion1">Reloj Digital y Alarma Sonora ⏰</a>
+        <a href="#seccion2">Eventos del teclado ⌨️</a>
+        <a href="#seccion3">Cuenta Regresiva ⏱</a>
         <a href="#seccion4">Sección 4</a>
         <a href="#seccion5">Sección 5</a>
       </nav>
     </aside>
     <main>
       <section id="seccion1" class="section">
-        <h1>Reloj Digital y Alarma Sonora</h1>
+        <h1>Reloj Digital y Alarma Sonora ⏰</h1>
         <div class="clock flexColumn"></div>
         <div class="buttons-container flexRow">
-          <audio loop id="alarm" src="https://orangefreesounds.com/wp-content/uploads/2020/05/Alarm-ringtone.mp3?_=1">
+          <audio
+            loop
+            id="alarm"
+            src="https://orangefreesounds.com/wp-content/uploads/2020/05/Alarm-ringtone.mp3?_=1"
+          >
             Your browser does not support the <code>audio</code> element.
           </audio>
           <button id="btnPlay" class="circle-button flexColumn">
@@ -52,15 +57,27 @@
         </div>
       </section>
       <section id="seccion2" class="section">
-        <h2>Eventos del teclado</h2>
-        <div class="containerEvent flexRow">
-          <div class="circleEvent">
-
-          </div>
-        </div>
+        <h2>Eventos del teclado ⌨️</h2>
+        <article class="stage flexRow">
+          <div class="ball"></div>
+        </article>
       </section>
       <section id="seccion3" class="section">
-        <h2>Sección 3</h2>
+        <h2>Cuenta Regresiva ⏱</h2>
+        <div class="countDownContainer">
+          <div class="days">
+            <div class="labelDays">Dias</div>
+          </div>
+          <div class="hours">
+            <div class="labelHoras">Horas</div>
+          </div>
+          <div class="minutes">
+            <div class="labelMinutos">Minutos</div>
+          </div>
+          <div class="seconds">
+            <div class="labelSegundos">Segundos</div>
+          </div>
+        </div>
       </section>
       <section id="seccion4" class="section">
         <h2>Sección 4</h2>
@@ -69,7 +86,12 @@
         <h2>Sección 5</h2>
       </section>
     </main>
-
+    <button class="autoScroll-btn hidden" type="button">
+      &#11014;
+    </button>
+    <button class="darkLight-btn light" type="button">
+      🌙
+    </button>
     <script src="js/index-dom.js" type="module"></script>
     <script
       src="https://kit.fontawesome.com/e44b729103.js"

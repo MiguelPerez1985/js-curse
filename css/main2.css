@@ -15,7 +15,7 @@
 
 html {
   box-sizing: border-box;
-  font-family: var(--main-font);
+  font-family: var(--main-font),arial;
   font-size: var(--font-size);
   scroll-behavior: smooth;
 }
@@ -29,6 +29,7 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
+  
 }
 
 img {
@@ -68,7 +69,7 @@ img {
 }
 
 .panel {
-  z-index: 998;
+  z-index: 997;
   position: fixed;
   background-color: var(--second-modal-color);
   width: 100%;
@@ -171,13 +172,13 @@ img {
 
 /* ******* Eventos del teclado ******* */
 
-.containerEvent {
+.stage {
   background-color: rgba(0, 0, 0, 0.864);
   width: 70vw;
   min-height: 50vh;
 }
 
-.circleEvent {
+.ball {
     background-color: var(--main-color);
     height: 3rem;
     width: 3rem;
@@ -185,6 +186,103 @@ img {
     
 }
 
-.move{
-  transform: translateY(-1px);
+
+/* ******* Cuenta Regresiva ******* */
+
+.countDownContainer{
+  width: 100%;
+  height: 11rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly; 
+  border-radius: 10px;
 }
+
+.countDownContainer > div{
+  font-size: 15vh;
+
+}
+
+.countDownContainer div > div{
+  font-size: 1rem;
+}
+
+.finalMessage{
+  font-size: 2rem;
+  margin: 10vh 0;
+}
+
+.reason{
+  font-size: 2rem;
+  margin: 5vh 0;
+  font-weight: lighter;
+}
+
+
+/* ******* Cuenta Regresiva ******* */
+
+.autoScroll-btn{
+  position: fixed;
+  z-index: 999;
+  bottom: 4vh;
+  right: calc(4.25rem + 2vw);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  padding: 0;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+  border: none;
+  cursor: pointer; 
+  visibility: visible;
+  -webkit-transition: all 0.5s ease-in-out;
+
+}
+.hidden{
+  visibility: hidden;
+  opacity: 0;
+}
+
+.autoScroll-btn:hover {
+  background-color: var(--main-modal-color);
+  
+  transition: all 0.2s ease;
+}
+
+/* ******* Botón Dark/Light ******* */
+
+.darkLight-btn{
+  position: fixed;
+  z-index: 999;
+  bottom: 4vh;
+  left: 2vw;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  padding: 0;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+  border: none;
+  cursor: pointer; 
+  visibility: visible;
+  -webkit-transition: all 0.5s ease-in-out;
+}
+
+.darkLight-btn:hover {
+  background-color: var(--second-color);
+  transition: all 0.2s ease;
+}
+
+.dark-mode{
+  background-color: var(--second-modal-color);
+  color: var(--main-color);
+}
+
+
