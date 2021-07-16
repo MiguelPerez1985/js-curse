@@ -78,7 +78,7 @@ img {
   left: 0;
   right: 0;
   /*De arriba*/
-  transform: translate(0, -100%);
+  transform: translate(0, -150%);
   transition: transform 0.3s ease;
 }
 
@@ -283,6 +283,50 @@ img {
 .dark-mode{
   background-color: var(--second-modal-color);
   color: var(--main-color);
+}
+
+/* ******* Responsive Tester ******* */
+
+.formRespTesterContainer{
+color: black;
+ background-color: rgb(255, 246, 195);
+ height: auto;
+ width: auto;
+ padding: 30px;
+ border-radius: 3px;
+ box-shadow: 5px 5px #ffffff;
+
+}
+.formRespTesterContainer input{
+  border: none;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  padding: 0.6rem;
+  margin: 0px 15px;
+  box-shadow: none; 
+  border-radius: 3px;
+  font-family: inherit;
+  text-align: center;
+  
+}
+.formRespTesterContainer input:focus{
+  outline: none;
+}
+.sizeInput{
+  width: 5rem;
+}
+
+#furl{
+  width: 20rem;
+}
+
+#btnTest{
+  cursor: pointer;
+  padding: 0.7rem;
+  background-color: var(--main-modal-color);
+}
+#btnTest:hover{
+  background-color: var(--main-color);
 }
 
 
