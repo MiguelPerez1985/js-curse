@@ -4,12 +4,18 @@ import { keyEvent, shortcut } from "./DOM/eventos-teclado.js";
 import countDown from "./DOM/cuenta-regresiva.js";
 import scrollTop from "./DOM/auto-scroll.js";
 import darkLight from "./DOM/darklight-button.js";
-import responsiveMedia from "./DOM/responsive.js";
+//import responsiveMedia from "./DOM/responsive.js";
 import responsiveTest from "./DOM/responsive-tester.js";
 import devicesDetection from "./DOM/user-agent.js";
+import status from "./DOM/conecction-status.js";
+import detectionWebCam from "./DOM/deteccion-webcam.js";
+
 
 const d = document;
-d.addEventListener("DOMContentLoaded", (e) => {
+
+
+
+d.addEventListener("DOMContentLoaded", (e) => {   
   hamburgerMenu(".panel-btn", ".panel", ".menu a");
   clock(".clock", "#btnPlay", "#btnStop");
   alarm("#alarm", "#btnAlarm", "#btnStopAlarm");
@@ -22,7 +28,6 @@ d.addEventListener("DOMContentLoaded", (e) => {
   scrollTop(".autoScroll-btn");
   darkLight(".darkLight-btn", "dark-mode");
   devicesDetection("#userAgent");
-
   /*responsiveMedia(
     "youtube",
     "(min-width: 1024px)",
@@ -41,10 +46,12 @@ d.addEventListener("DOMContentLoaded", (e) => {
     width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>`
   );*/
   responsiveTest("responsiveTester");
-
+  detectionWebCam(".webCam");
+  
 });
 
 d.addEventListener("keydown", (e) => {
   keyEvent(e, ".ball", ".stage");
   shortcut(e);
 });
+status(".online",".offline");
